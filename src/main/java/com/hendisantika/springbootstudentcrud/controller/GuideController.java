@@ -40,7 +40,7 @@ public class GuideController {
     @PostMapping("/addguide")
     public String addGuide(Guide guide, BindingResult result) {
 
-        if (guide.getName().equals("") || guide.getName().matches(".*\\d+.*") || guide.getSalary() < 1000) {
+        if (guide.getName().isEmpty()|| guide.getName().matches(".*\\d+.*") || guide.getSalary() < 0) {
             result.rejectValue("name", "name");
             return "addguide";
         }

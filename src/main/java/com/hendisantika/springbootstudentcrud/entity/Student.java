@@ -23,11 +23,11 @@ public class Student {
 
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.MERGE })
     @JoinColumn(name = "guide_id")
     private Guide guide;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Set<Subject> subject = new HashSet<>();
 
     public Student() {
